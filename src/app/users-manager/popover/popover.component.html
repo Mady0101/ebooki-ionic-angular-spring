@@ -1,0 +1,9 @@
+<ion-list>
+  <ion-list-header><h1>Personal informations</h1></ion-list-header>
+  <ion-item *ngFor="let info of user | keyvalue:keepOriginalOrder">
+    <ion-label>
+      <strong>{{info.key}} :</strong>
+      <p>{{info.value}}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>

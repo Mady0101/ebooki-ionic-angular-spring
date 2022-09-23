@@ -1,0 +1,18 @@
+{
+  "appId": "com.pfe.agile",
+  "appName": "pfe",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "allowMixedContent": true,
+  "server": {
+    "url": "http://192.168.1.5:8100",
+    "cleartext": true
+  }
+}

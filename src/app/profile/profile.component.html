@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>
+      Profile
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  <div style="padding-bottom: 20px;">
+    <ion-row class="profile-header ion-align-items-center" class="avatarSection" >
+      <ion-col size="auto">
+        <div id="avatar">
+         
+        <ion-avatar class="avatar-lg has-update has-status">
+          <img src="assets/img/defaul_prof_img.jpg" alt="">
+        </ion-avatar>
+      
+        <div id="cameraButtonSection">
+          <ion-button id="cameraButton" color="warning">
+            <ion-icon name="camera-outline"></ion-icon> 
+          </ion-button>
+        </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="nameUser">
+      <ion-col size="auto">
+        <ion-text color="light">
+        <strong>{{user?.userId}}#{{user?.username}}</strong>
+        </ion-text>
+      </ion-col>
+     </ion-row> 
+    
+    <ion-row>
+      <ion-progress-bar  class="progressBar" value="{{progress}}"></ion-progress-bar>
+    </ion-row>
+    <ion-row class="progressInfo">
+      <ion-text color="light">{{exp}} / {{rankcap}}</ion-text>
+    </ion-row>
+    <ion-row class="progressInfo">
+      <ion-text color="light">{{rankName}}</ion-text>
+    </ion-row>
+  </div>
+  
+  <form [formGroup]="EditForm" (ngSubmit)="onSubmit()" padding-right>
+     <ion-item>
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-input name="username" disabled  [value]="user?.username"  formControlName="username" ></ion-input>
+     </ion-item>
+     <ion-item>
+     <ion-icon name="mail-outline"></ion-icon>
+       <ion-input name="email"  [value]="user?.email"  formControlName="email" ></ion-input>
+     </ion-item>
+    
+     <ion-item>
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="birthday" [value]="user?.birthday"  formControlName="birthday"></ion-datetime>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input type="password" formControlName="password" placeholder="password" name="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+            <ion-input type="password" placeholder="current password" formControlName="oldPassword" name="password" ></ion-input>
+          </ion-item>
+
+        
+
+        <ion-button  type="submit" [disabled]="!EditForm.valid" color="warning" expand="block" id="save" >save</ion-button>
+      </form>
+
+      <div *ngIf="passwordMatchErrorMessage">
+        <ion-text><h1>{{passwordMatchErrorMessage}}</h1></ion-text>
+      </div>
+        
+
+        
+        
+    
+    
+
+
+
+
+
+  </ion-content>

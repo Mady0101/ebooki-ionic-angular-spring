@@ -1,0 +1,21 @@
+.post-grid {
+    ion-row {
+      --ion-grid-column-padding: 1px;
+    }
+  
+    .post-item {
+      width: 100%;
+      height: 0;
+      
+    }
+  }
+
+  img{
+    height:90px;
+  }
+
+  
+
+.background{
+  --background: url("/assets/img/roof_background.png")  0/100% 100% no-repeat;
+}

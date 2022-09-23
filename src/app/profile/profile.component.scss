@@ -1,0 +1,69 @@
+.profile-header {
+    padding: 8px;
+  }
+
+  ion-avatar { 
+    width: 150px;  
+    height: 150px;  
+}
+
+#avatar{
+    position: relative;
+}
+#cameraButtonSection{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+#camereButton{
+    border-radius: 50%;
+    
+}
+
+.avatarSection{
+    padding-top: 50px;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.nameUser{
+    align-items: center !important;
+    justify-content: center !important;
+    padding-bottom: 30px;
+}
+
+.progressBar{
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 50%;
+    --progress-background: var(--ion-color-warning); 
+}
+
+.progressInfo{
+    padding-top: 5px;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
+ion-item{
+    
+    --border-color: red;
+}
+.right{
+    padding-right: 0px;
+}
+ion-content{
+    --background: var(--ion-color-dark);  
+}
+
+#save{
+    width: auto;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 10px;
+    height: 50px;
+}

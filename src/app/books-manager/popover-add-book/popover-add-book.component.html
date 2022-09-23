@@ -1,0 +1,79 @@
+<form [formGroup]="AddForm" (ngSubmit)="onSubmit()" padding-right>
+  <ion-item>
+    <ion-label position="floating">Name*</ion-label>
+    <ion-input type="text" formControlName="Name" required></ion-input>
+    <div *ngIf="AddForm.get('Name').invalid && (AddForm.get('Name').dirty || AddForm.get('Name').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Name').errors.required">
+          Name is required.
+         </div>
+    </div>
+  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Author*</ion-label>
+      <ion-input type="text" formControlName="Author" required></ion-input>
+    <div *ngIf="AddForm.get('Author').invalid && (AddForm.get('Author').dirty || AddForm.get('Author').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Author').errors.required">
+          Author is required.
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Theme*</ion-label>
+    <ion-input type="text" formControlName="Theme" required></ion-input>
+    <div *ngIf="AddForm.get('Theme').invalid && (AddForm.get('Theme').dirty || AddForm.get('Theme').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Theme').errors.required">
+          Theme is required.
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Image url*</ion-label>
+    <ion-input type="text" formControlName="Img" required></ion-input>
+    <div *ngIf="AddForm.get('Img').invalid && (AddForm.get('Img').dirty || AddForm.get('Img').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Img').errors.required">
+          Image url is required.
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Pdf url*</ion-label>
+    <ion-input type="text" formControlName="Pdf" required></ion-input>
+    <div *ngIf="AddForm.get('Pdf').invalid && (AddForm.get('Pdf').dirty || AddForm.get('Pdf').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Pdf').errors.required">
+          Pdf url is required.
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Vues*</ion-label>
+    <ion-input type="number" formControlName="Vues" required></ion-input>
+    <div *ngIf="AddForm.get('Vues').invalid && (AddForm.get('Vues').dirty || AddForm.get('Vues').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Vues').errors.required">
+          Vues is required.
+         </div>
+         <div *ngIf="AddForm.get('Vues').errors.min">
+          Vues must be positive
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Likes*</ion-label>
+    <ion-input type="number" formControlName="Likes" required></ion-input>
+    <div *ngIf="AddForm.get('Likes').invalid && (AddForm.get('Likes').dirty || AddForm.get('Likes').touched)"
+          class="alert alert-danger">
+         <div *ngIf="AddForm.get('Likes').errors.required">
+          Likes are required.
+         </div>
+         <div *ngIf="AddForm.get('Likes').errors.min">
+          Likes must be positive
+         </div>
+    </div>
+  </ion-item>
+  <ion-button type="submit" expand="block"  >Update</ion-button>
+</form>

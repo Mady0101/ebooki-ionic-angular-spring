@@ -1,0 +1,40 @@
+ion-content{
+    text-align: center;
+    --background: var(--ion-color-dark); 
+     
+}
+
+ion-item{
+    width: auto;
+    padding-top: 10px;
+    --highlight-height: 0;
+    padding-left: 30%;
+    padding-right: 30%;
+    
+    ion-label{
+        text-align: center;
+    }
+}
+
+.button_signup{
+    --background: var(--ion-color-warning);
+    width: auto;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 10px;
+    height: 50px;
+}
+
+img{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+ }
+.signup{
+    text-align: center;
+    
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+}

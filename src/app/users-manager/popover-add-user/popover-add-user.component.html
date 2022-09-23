@@ -1,0 +1,72 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()" padding-right>
+  <ion-item>
+    <ion-label position="floating">Username*</ion-label>
+    <ion-input type="text" formControlName="username" required></ion-input>
+    <div *ngIf="addForm.get('username').invalid && (addForm.get('username').dirty || addForm.get('username').touched)"
+          class="alert alert-danger">
+         <div *ngIf="addForm.get('username').errors.required">
+          Username is required.
+         </div>
+    </div>
+  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password*</ion-label>
+      <ion-input type="text" formControlName="password" required></ion-input>
+    <div *ngIf="addForm.get('password').invalid && (addForm.get('password').dirty || addForm.get('password').touched)"
+          class="alert alert-danger">
+         <div *ngIf="addForm.get('password').errors.required">
+          Password is required.
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email*</ion-label>
+    <ion-input type="email" formControlName="email" required></ion-input>
+    <div *ngIf="addForm.get('email').invalid && (addForm.get('email').dirty || addForm.get('email').touched)"
+          class="alert alert-danger">
+         <div *ngIf="addForm.get('email').errors.required">
+          Email is required.
+         </div>
+         <div *ngIf="addForm.get('email').errors.email">
+          Email pattern should be *@*.*
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Birthday</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" formControlName="birthday" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">EXP</ion-label>
+    <ion-input type="number" formControlName="exp" required></ion-input>
+    <div *ngIf="addForm.get('exp').invalid && (addForm.get('exp').dirty || addForm.get('exp').touched)"
+          class="alert alert-danger">
+         <div *ngIf="addForm.get('exp').errors.min">
+          EXP must be positive
+         </div>
+    </div>
+  </ion-item>
+  <ion-list>
+    <ion-list-header>
+      Type
+    </ion-list-header>
+  <ion-item>
+    <ion-radio-group formControlName="type">
+      <ion-item>
+      <ion-label>User</ion-label>
+      <ion-radio slot="start" value="user"></ion-radio>
+     </ion-item>
+     <ion-item>
+      <ion-label>Administrator</ion-label>
+      <ion-radio slot="start" value="admin"></ion-radio>
+     </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  </ion-list>
+  <div *ngIf="errorMsg">
+    <ion-text><h1>{{errorMsg}}</h1></ion-text>
+  </div>
+  
+  <ion-button type="submit"  [disabled]="!addForm.valid" >Add</ion-button>
+</form>
+

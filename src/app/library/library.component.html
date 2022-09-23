@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>
+      {{userId}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  
+    <ion-content class="background" fullscreen>
+      <div class="post-grid">
+        <ion-row  >
+          <ion-col col-4 *ngFor="let subscribedBook of subscribedBooks">
+            <div class="post-item bg-image">
+              <!--<button (click)="localPdf($event)">-->
+                <button (click)="openSheet(subscribedBook)">
+              <img src="{{subscribedBook.livre.img}}"  >
+              <ion-progress-bar value="{{subscribedBook.completion}}"></ion-progress-bar>
+              </button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      
+    
+    </ion-content>

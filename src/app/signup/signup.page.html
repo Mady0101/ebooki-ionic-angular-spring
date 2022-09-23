@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>signup</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  routerLink="/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="signup">
+    <img src="assets/img/agile_logo.png" >
+  <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit()" padding-right>
+    <ion-item>
+      <ion-label position="floating">Username*</ion-label>
+      <ion-input type="text" formControlName="username" required></ion-input>
+      <div *ngIf="SignUpForm.get('username').invalid && (SignUpForm.get('username').dirty || SignUpForm.get('username').touched)"
+            class="alert alert-danger">
+           <div *ngIf="SignUpForm.get('username').errors.required">
+            Username is required.
+           </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password*</ion-label>
+      <ion-input type="password" formControlName="password" required></ion-input>
+      <div *ngIf="SignUpForm.get('password').invalid && (SignUpForm.get('password').dirty || SignUpForm.get('password').touched)"
+            class="alert alert-danger">
+           <div *ngIf="SignUpForm.get('password').errors.required">
+            Password is required.
+           </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email*</ion-label>
+      <ion-input type="email" formControlName="email" required></ion-input>
+      <div *ngIf="SignUpForm.get('email').invalid && (SignUpForm.get('email').dirty || SignUpForm.get('email').touched)"
+            class="alert alert-danger">
+           <div *ngIf="SignUpForm.get('email').errors.required">
+            Email is required.
+           </div>
+           <div *ngIf="SignUpForm.get('email').errors.email">
+            Email pattern should be *@*.*
+           </div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Birthday</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" formControlName="birthday" ></ion-datetime>
+    </ion-item>
+    <h1>{{user.birtdhay}}</h1>
+    <div *ngIf="msg !=''">
+      <ion-text color="danger">
+        {{msg}}
+      </ion-text>
+    </div>
+    
+    <ion-button type="submit"  [disabled]="!SignUpForm.valid" class="button_signup">SignUp</ion-button>
+</form>
+</div>
+
+</ion-content>

@@ -1,0 +1,70 @@
+<form [formGroup]="UpdateForm" (ngSubmit)="onSubmit()" padding-right>
+  <ion-item>
+    <ion-label position="floating">Username*</ion-label>
+    <ion-input type="text" formControlName="username" required></ion-input>
+    <div *ngIf="UpdateForm.get('username').invalid && (UpdateForm.get('username').dirty || UpdateForm.get('username').touched)"
+          class="alert alert-danger">
+         <div *ngIf="UpdateForm.get('username').errors.required">
+          Username is required.
+         </div>
+    </div>
+  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password*</ion-label>
+      <ion-input type="text" formControlName="password" required></ion-input>
+    <div *ngIf="UpdateForm.get('password').invalid && (UpdateForm.get('password').dirty || UpdateForm.get('password').touched)"
+          class="alert alert-danger">
+         <div *ngIf="UpdateForm.get('password').errors.required">
+          Password is required.
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email*</ion-label>
+    <ion-input type="email" formControlName="email" required></ion-input>
+    <div *ngIf="UpdateForm.get('email').invalid && (UpdateForm.get('email').dirty || UpdateForm.get('email').touched)"
+          class="alert alert-danger">
+         <div *ngIf="UpdateForm.get('email').errors.required">
+          Email is required.
+         </div>
+         <div *ngIf="UpdateForm.get('email').errors.email">
+          Email pattern should be *@*.*
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Birthday</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" formControlName="birthday" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">EXP*</ion-label>
+    <ion-input type="number" formControlName="exp" required></ion-input>
+    <div *ngIf="UpdateForm.get('exp').invalid && (UpdateForm.get('exp').dirty || UpdateForm.get('exp').touched)"
+          class="alert alert-danger">
+         <div *ngIf="UpdateForm.get('exp').errors.required">
+          EXP is required.
+         </div>
+         <div *ngIf="UpdateForm.get('exp').errors.min">
+          EXP must be positive
+         </div>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-radio-group formControlName="type">
+      <ion-item>
+      <ion-label>User</ion-label>
+      <ion-radio slot="start" value="ROLE_USER"></ion-radio>
+     </ion-item>
+     <ion-item>
+      <ion-label>Administrator</ion-label>
+      <ion-radio slot="start" value="ROLE_ADMIN"></ion-radio>
+     </ion-item>
+    </ion-radio-group>
+  </ion-item>
+  <div *ngIf="errorMsg">
+    <ion-text><h1>{{errorMsg}}</h1></ion-text>
+  </div>
+ 
+  
+  <ion-button type="submit"  [disabled]="!UpdateForm.valid" >Update</ion-button>
+</form>

@@ -1,0 +1,56 @@
+<ion-header >
+  <ion-toolbar color="warning">
+    <ion-title>login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  routerLink="/signup">sign-Up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<nav>
+
+</nav>
+
+<ion-content>
+  <div class="login">
+
+  
+  <img src="assets/img/agile_logo.png" >
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" padding-right >
+    
+    <ion-item  >
+      <ion-label position="floating">Username</ion-label>
+      <ion-input  type="text" formControlName="username" required></ion-input>
+      <div *ngIf="userForm.get('username').invalid && (userForm.get('username').dirty || userForm.get('username').touched)"
+            class="alert alert-danger">
+           <div *ngIf="userForm.get('username').errors.required">
+            Username is required.
+           </div>
+      </div>
+      
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" required></ion-input>
+      <div *ngIf="userForm.get('password').invalid && (userForm.get('password').dirty || userForm.get('password').touched)"
+            class="alert alert-danger">
+           <div *ngIf="userForm.get('password').errors.required">
+            Password is required.
+           </div>
+      </div>
+    </ion-item>
+    
+    <ion-button type="submit" [disabled]="!userForm.valid" class="button_login">Login</ion-button>
+    <div *ngIf="notFound">
+      <ion-text color="danger">
+        Invalid account please try again !
+      </ion-text>
+    </div>
+</form>
+
+
+
+
+
+  </div>
+</ion-content>

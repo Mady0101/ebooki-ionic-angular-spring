@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>administrator</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding-top: 10%;">
+<ion-button color="warning" expand="block" (click)="goToUsersManager()">
+  <ion-label>Gerer les comptes d'utilisateurs</ion-label>
+</ion-button>
+<ion-button color="warning" expand="block" (click)="goToBookManager()">
+  <ion-label>Gerer les livres d'application</ion-label>
+</ion-button>
+<ion-button color="warning" expand="block" (click)="goToHome()">
+  <ion-label>Connect as User</ion-label>
+</ion-button>
+</div>
+</ion-content>

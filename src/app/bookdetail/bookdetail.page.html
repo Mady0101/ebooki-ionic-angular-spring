@@ -1,0 +1,81 @@
+<ion-header>
+<ion-toolbar color="warning">
+  <ion-title>
+    detail
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button  (click)="logout()">Logout</ion-button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+  <ion-card>
+  
+    <img src="{{book?.img}}" alt="ion">
+    <ion-card-header>
+      <ion-card-title>{{book?.nom}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus iaculis mollis ligula sed ultrices.
+    </ion-card-content>
+  
+    <ion-footer>
+      <ion-row>
+        <ion-col center text-center>
+          <button>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{book?.jaimes}}</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <button>
+            <ion-icon name="text"></ion-icon>
+            <div>{{comments.length}}</div>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col center text-center>
+          <ion-button (click)="subscribe()">add to library</ion-button>
+          <div *ngIf="msg">
+            <ion-text><p>{{msg}}</p></ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+
+  
+    <ion-card *ngFor="let comment of comments">
+      <ion-card-content>
+        
+          <ion-card-header>
+            <ion-card-title>
+              <strong>{{comment.utilisateur.userId}}#{{comment.utilisateur.username}}</strong>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              {{comment.content}}
+            </p>
+            <div style="float : right;" *ngIf="comment.utilisateur.userId===userId">
+              <ion-button (click)="deleteComment(comment.commentId)">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+              </div>
+          </ion-card-content>
+            
+            
+      </ion-card-content>
+      </ion-card>
+    
+      
+    <ion-item>
+      <ion-textarea placeholder="Enter more information here..." [(ngModel)]="content"></ion-textarea>
+      <ion-button (click)="addComment(comment)">
+        <ion-icon style="float : right;" name="caret-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+  
+</ion-content>

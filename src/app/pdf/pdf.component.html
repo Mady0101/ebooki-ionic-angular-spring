@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My PDF</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div #booked >
+<ion-button [class]="bookmarked" [color]="color" (click)="bookedPage()">
+  <ion-icon name="bookmark-outline"></ion-icon>
+</ion-button>
+<ion-button (click)="gotoMarkedPage()" style="float : right;">GO to Marked Page</ion-button></div>
+  
+   <div class="pdf">
+  <pdf-viewer [src]="pdfSrc"
+  [render-text]="true"
+  style="display: block;"
+  [show-all]="false"
+  [zoom]="zoom"
+  [zoom-scale]="'page-width'"
+  [(page)]="pageVariable"
+  [original-size]="false"
+  (after-load-complete)="afterLoadComplete($event)"
+  (error)="onError($event)"
+></pdf-viewer>
+</div> 
+
+
+<ion-grid>
+<ion-row>
+<ion-col offset="1">
+<button (click)="backwardPage()">
+<ion-icon name="caret-back-outline"></ion-icon>
+</button>
+</ion-col > 
+<ion-col offset="2" size="1">
+<ion-label>{{pageVariable}}</ion-label>
+</ion-col>
+<ion-col offset="3">
+<button (click)="forwardPage()">
+<ion-icon name="caret-forward-outline"></ion-icon>
+</button>
+</ion-col>
+<!--<ion-col>
+  <ion-button (click)="zoomin()">
+  <ion-icon name="caret-forward-outline"></ion-icon>
+  </ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button (click)="zoomout()">
+    <ion-icon name="caret-forward-outline"></ion-icon>
+    </ion-button>
+    </ion-col>-->
+</ion-row>
+</ion-grid>
+
+  </ion-content>
